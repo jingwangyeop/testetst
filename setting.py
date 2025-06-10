@@ -78,10 +78,10 @@ def search_nearby_places_list(place_name, category_codes):
 where = "사상구 학장동"
 # ✅ 실행 예시
 data = search_nearby_places_list(where, ["CT1", "AT4"])
-i = 0
-while i < 3:
-    i = i + 1
-    st.write("위치 :" + data[i][0] +" , 장소 :" + data[i][1])
+
+st.write("위치 :" + data[0][0] +" , 장소 :" + data[0][1])
+st.write("위치 :" + data[1][0] +" , 장소 :" + data[1][1])
+st.write("위치 :" + data[2][0] +" , 장소 :" + data[2][1])
 
 
 
