@@ -72,7 +72,7 @@ def search_nearby_places_list(place_name, category_codes):
 
 where = st.session_state.where
 
-where = 사상구 학장동
+where = "사상구 학장동"
 # ✅ 실행 예시
 data = search_nearby_places_list(where, ["CT1", "AT4"])
 for item in data:
