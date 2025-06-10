@@ -1,5 +1,9 @@
+streamlit
 openai
 langchain
-os
+langchain-openai
+langchain-core
+langchain-community
+langgraph
+duckduckgo-search
 requests
-
