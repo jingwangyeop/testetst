@@ -4,6 +4,8 @@ import ast
 import os
 import requests
 from langchain_openai import ChatOpenAI
+import streamlit as st
+
 
 os.environ["OPENAI_API_KEY"] = "1"
 model = ChatOpenAI(model="gpt-4.1-mini")
