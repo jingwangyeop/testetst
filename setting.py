@@ -1,4 +1,4 @@
-!pip install langchain langchain_openai langchain_community duckduckgo-search langgraph
+import langchain_openai langchain_community duckduckgo-search langgraph
 import openai
 import langchain
 
