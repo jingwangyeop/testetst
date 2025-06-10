@@ -8,3 +8,4 @@ langgraph
 duckduckgo-search
 requests
 folium
+streamlit-folium
