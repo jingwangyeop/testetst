@@ -79,7 +79,13 @@ where = "사상구 학장동"
 # ✅ 실행 예시
 data = search_nearby_places_list(where, ["CT1", "AT4"])
 for item in data:
-    st.write(item)
+    st.write("장소 :" + data[0][0] +","+ "주소 :" + data[0][1])
+
+
+
+
+
+
 
 
 
@@ -114,4 +120,5 @@ html_code = f"""
 
 # HTML 삽입
 components.html(html_code, height=450)
-os.system("streamlit run setting.py")
+
+
