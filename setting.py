@@ -80,6 +80,7 @@ where = "사상구 학장동"
 data = search_nearby_places_list(where, ["CT1", "AT4"])
 i = 0
 while i < 3:
+    i++
     st.write("위치 :" + data[i][0] +" , 장소 :" + data[i][1])
 
 
