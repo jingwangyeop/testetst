@@ -1,0 +1,17 @@
+!pip install langchain langchain_openai langchain_community duckduckgo-search langgraph
+import openai
+import langchain
+
+import os
+from langchain_openai import ChatOpenAI
+
+os.environ["OPENAI_API_KEY"] = "1"
+model = ChatOpenAI(model="gpt-4.1-mini")
+
+from langchain_core.tools import tool
+
+from langchain_core.messages import ToolMessage
+
+from langchain_community.tools import DuckDuckGoSearchResults
+
+from langgraph.prebuilt import create_react_agent
