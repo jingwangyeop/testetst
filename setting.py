@@ -78,8 +78,9 @@ def search_nearby_places_list(place_name, category_codes):
 where = "사상구 학장동"
 # ✅ 실행 예시
 data = search_nearby_places_list(where, ["CT1", "AT4"])
-for item in data:
-    st.write("장소 :" + data[0][0] +","+ "주소 :" + data[0][1])
+i = 0
+while i < 3:
+    st.write("위치 :" + data[i][0] +" , 장소 :" + data[i][1])
 
 
 
