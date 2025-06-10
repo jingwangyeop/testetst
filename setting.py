@@ -111,4 +111,3 @@ html_code = f"""
 
 # HTML 삽입
 components.html(html_code, height=450)
-streamlit run app.py
