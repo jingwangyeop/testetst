@@ -114,4 +114,4 @@ html_code = f"""
 
 # HTML 삽입
 components.html(html_code, height=450)
-subprocess.run(["streamlit", "run", "setting.py"])
+os.system("streamlit run setting.py")
