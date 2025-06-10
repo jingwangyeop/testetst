@@ -3,7 +3,8 @@ import langchain
 import ast
 import os
 import requests
-
+import folium
+from streamlit_folium import st_folium
 from langchain_openai import ChatOpenAI
 import streamlit as st
 import streamlit.components.v1 as components
@@ -17,7 +18,6 @@ from langchain_community.tools import DuckDuckGoSearchResults
 from langgraph.prebuilt import create_react_agent
 
 KAKAO_API_KEY = "83c0445f5fc4a2ee846f09e47fb00187"
-
 
 # 1. 장소 키워드로 좌표 얻기
 def get_coordinates_by_keyword(query):
@@ -66,24 +66,48 @@ def search_nearby_places_list(place_name, category_codes):
     for place in results:
         name = place['place_name']
         address = place.get('road_address_name') or place.get('address_name')
-        output_list.append([name, address])  # 장소명, 주소
+        lat = float(place['y'])
+        lon = float(place['x'])
+        output_list.append([name, address, lat, lon])  # 장소명, 주소, 위도, 경도
 
     return output_list, (x, y)  # 장소 목록과 좌표 함께 반환
 
-
-# 🧪 실행 예시
+# 📍 검색 대상
 where = "사상구 학장동"
 data, coords = search_nearby_places_list(where, ["CT1", "AT4"])
 
+# 📋 정보 출력
 if coords:
     st.write(f"🔍 검색 장소: {where}")
     st.write(f"📍 좌표: 경도 {coords[0]}, 위도 {coords[1]}")
 else:
     st.error("❌ 장소 좌표를 불러올 수 없습니다.")
 
-if len(data) >= 3:
+if len(data) >= 1:
     st.write("▶️ 주변 장소:")
-    for i in range(3):
-        st.write(f"위치: {data[i][0]} , 주소: {data[i][1]}")
+    for i, item in enumerate(data[:5]):  # 최대 5개 표시
+        st.write(f"{i+1}. 위치: {item[0]} , 주소: {item[1]}")
+
+    # 🗺️ 지도 표시
+    m = folium.Map(location=[data[0][2], data[0][3]], zoom_start=15)
+
+    # 중심 장소 마커
+    folium.Marker(
+        location=[data[0][2], data[0][3]],
+        tooltip="검색 중심지",
+        icon=folium.Icon(color="red")
+    ).add_to(m)
+
+    # 주변 장소 마커들
+    for place in data[:10]:  # 최대 10개 마커
+        folium.Marker(
+            location=[place[2], place[3]],
+            popup=place[0],
+            tooltip=place[1]
+        ).add_to(m)
+
+    # 지도 렌더링
+    st_folium(m, width=700, height=500)
+
 else:
     st.warning("🔎 결과가 충분하지 않습니다. 다른 장소를 시도해보세요.")
