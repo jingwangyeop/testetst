@@ -80,6 +80,20 @@ data, coords = search_nearby_places_list(where, ["CT1", "AT4"])
 if coords:
     st.write(f"🔍 검색 장소: {where}")
     st.write(f"📍 좌표: 경도 {coords[0]}, 위도 {coords[1]}")
+    # 지도 생성
+    m = folium.Map(location=[coords[1], coords[0]], zoom_start=15)
+
+    # 기준 장소 마커
+    folium.Marker(location=[coords[1], coords[0]], popup=where, tooltip="검색 장소").add_to(m)
+
+    # 주변 장소 10개 마커
+    for place in data[:10]:
+        coords_place = get_coordinates_by_keyword(place[0])
+        if coords_place:
+            folium.Marker(location=[coords_place[1], coords_place[0]], popup=place[0], tooltip=place[1]).add_to(m)
+
+    # 지도 스트림릿에 띄우기
+    st_folium(m, width=700, height=500)
 else:
     st.error("❌ 장소 좌표를 불러올 수 없습니다.")
 
