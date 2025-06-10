@@ -97,31 +97,4 @@ if coords:
 else:
     st.error("❌ 장소 좌표를 불러올 수 없습니다.")
 
-if len(data) >= 1:
-    st.write("▶️ 주변 장소:")
-    for i, item in enumerate(data[:5]):  # 최대 5개 표시
-        st.write(f"{i+1}. 위치: {item[0]} , 주소: {item[1]}")
 
-    # 🗺️ 지도 표시
-    m = folium.Map(location=[data[0][2], data[0][3]], zoom_start=15)
-
-    # 중심 장소 마커
-    folium.Marker(
-        location=[data[0][2], data[0][3]],
-        tooltip="검색 중심지",
-        icon=folium.Icon(color="red")
-    ).add_to(m)
-
-    # 주변 장소 마커들
-    for place in data[:10]:  # 최대 10개 마커
-        folium.Marker(
-            location=[place[2], place[3]],
-            popup=place[0],
-            tooltip=place[1]
-        ).add_to(m)
-
-    # 지도 렌더링
-    st_folium(m, width=700, height=500)
-
-else:
-    st.warning("🔎 결과가 충분하지 않습니다. 다른 장소를 시도해보세요.")
