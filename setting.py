@@ -5,7 +5,7 @@ import os
 import requests
 from langchain_openai import ChatOpenAI
 import streamlit as st
-
+import streamlit.components.v1 as components
 
 os.environ["OPENAI_API_KEY"] = "1"
 model = ChatOpenAI(model="gpt-4.1-mini")
@@ -78,3 +78,36 @@ where = "사상구 학장동"
 data = search_nearby_places_list(where, ["CT1", "AT4"])
 for item in data:
     st.write(item)
+
+
+
+st.title("📍 카카오맵 예제 (Streamlit 삽입)")
+
+# 본인의 JavaScript 키로 바꿔주세요
+KAKAO_JAVASCRIPT_KEY = "d920a6e3a78bfb47c41cbdfbe01e4030"
+
+html_code = f"""
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Kakao Map</title>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey={KAKAO_JAVASCRIPT_KEY}"></script>
+</head>
+<body>
+<div id="map" style="width:100%;height:400px;"></div>
+<script>
+    var container = document.getElementById('map');
+    var options = {{
+        center: new kakao.maps.LatLng(37.5665, 126.9780), // 서울 시청
+        level: 3
+    }};
+
+    var map = new kakao.maps.Map(container, options);
+</script>
+</body>
+</html>
+"""
+
+# HTML 삽입
+components.html(html_code, height=450)
