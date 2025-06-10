@@ -102,3 +102,5 @@ if len(data) >= 1:
     for i, item in enumerate(data[:5]):  # 최대 5개 표시
         st.write(f"{i+1}. 위치: {item[0]} , 주소: {item[1]}")
 
+
+#추가할점 : 리뷰를적거나 블로그에서 무언갈 갖고오기 덕덕고 , 블로그 ㅇㅋㅇㅋㅇㅋㅇㅋㅇㅋㅇㅋㅇㅋㅇㅋ
