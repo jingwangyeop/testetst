@@ -97,4 +97,8 @@ if coords:
 else:
     st.error("❌ 장소 좌표를 불러올 수 없습니다.")
 
+if len(data) >= 1:
+    st.write("▶️ 주변 장소:")
+    for i, item in enumerate(data[:5]):  # 최대 5개 표시
+        st.write(f"{i+1}. 위치: {item[0]} , 주소: {item[1]}")
 
