@@ -69,7 +69,6 @@ def search_nearby_places_list(place_name, category_codes):
 
     return output_list
 
-where = st.session_state.where
 
 where = "사상구 학장동"
 # ✅ 실행 예시
