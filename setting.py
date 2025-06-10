@@ -3,6 +3,8 @@ import langchain
 import ast
 import os
 import requests
+import subprocess # 맵띄우는데필요함
+
 from langchain_openai import ChatOpenAI
 import streamlit as st
 import streamlit.components.v1 as components
@@ -112,4 +114,4 @@ html_code = f"""
 
 # HTML 삽입
 components.html(html_code, height=450)
-streamlit run setting.py
+subprocess.run(["streamlit", "run", "setting.py"])
