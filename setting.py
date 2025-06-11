@@ -9,14 +9,14 @@ from langchain_openai import ChatOpenAI
 import streamlit as st
 import streamlit.components.v1 as components
 from langchain_community.tools import DuckDuckGoSearchResults
-os.environ["OPENAI_API_KEY"] = "1"
-model = ChatOpenAI(model="gpt-4.1-mini")
-
 
 from langchain_core.tools import tool
 from langchain_core.messages import ToolMessage
-from langchain_community.tools.duckduckgo_search import DuckDuckGoSearchResults
+from langchain_community.tools import DuckDuckGoSearchResults
 from langgraph.prebuilt import create_react_agent
+
+os.environ["OPENAI_API_KEY"] = "1"
+model = ChatOpenAI(model="gpt-4.1-mini")
 
 KAKAO_API_KEY = "83c0445f5fc4a2ee846f09e47fb00187"
 search1 = DuckDuckGoSearchResults()
