@@ -4,7 +4,6 @@ import os
 import requests
 import folium
 from streamlit_folium import st_folium
-from langchain_openai import ChatOpenAI
 import streamlit as st
 import streamlit.components.v1 as components
 
