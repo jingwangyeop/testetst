@@ -16,7 +16,13 @@ from langgraph.prebuilt import create_react_agent
 
 
 KAKAO_API_KEY = "83c0445f5fc4a2ee846f09e47fb00187"
-#search1 = DuckDuckGoSearchResults()
+
+apikey = st.text_input("openai api key를 입력하세요 :", type = "password")
+st.session_state.api_key = apikey
+client = OpenAI(api_key=apikey)
+
+
+
 # 1. 장소 키워드로 좌표 얻기
 def get_coordinates_by_keyword(query):
     url = "https://dapi.kakao.com/v2/local/search/keyword.json"
@@ -100,15 +106,17 @@ if len(data) >= 1:
     for i, item in enumerate(data[:5]):  # 최대 5개 표시
         st.write(f"{i+1}. 위치: {item[0]} , 주소: {item[1]}")
 
-#################
+def what(place):
+    response = client.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=[
+            {"role": "system", "content": f"검색기능을 활용해 다음 장소를 한주로 요약해줘. {place}"}
+        ]
+    )
+    return response.choices[0].message.content
 
-
-for i in [0,1,2,3,4,5]:
-    ppt = DuckDuckGoSearchResults().invoke(f"{data[i][0]}을 검색해서 한문장으로 장소에 대해 요약해줘")
-    print(ppt)
-
-
-
-#추가할점 : 리뷰를적거나 블로그에서 무언갈 갖고오기 덕덕고 , 블로그 ㅇㅋㅇㅋㅇㅋㅇㅋㅇㅋㅇㅋㅇㅋㅇㅋ
+for i in [0,1,2,3,4]:
+    w = data[i][0]
+    st.write(what(w))
 
 
