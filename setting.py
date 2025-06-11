@@ -8,15 +8,12 @@ from streamlit_folium import st_folium
 from langchain_openai import ChatOpenAI
 import streamlit as st
 import streamlit.components.v1 as components
-from langchain_community.tools import DuckDuckGoSearchResults
 
 from langchain_core.tools import tool
 from langchain_core.messages import ToolMessage
 from langchain_community.tools import DuckDuckGoSearchResults
 from langgraph.prebuilt import create_react_agent
 
-os.environ["OPENAI_API_KEY"] = "1"
-model = ChatOpenAI(model="gpt-4.1-mini")
 
 KAKAO_API_KEY = "83c0445f5fc4a2ee846f09e47fb00187"
 search1 = DuckDuckGoSearchResults()
@@ -104,8 +101,6 @@ if len(data) >= 1:
         st.write(f"{i+1}. 위치: {item[0]} , 주소: {item[1]}")
 
 #################
-
-
 
 
 for i in [0,1,2,3,4,5]:
