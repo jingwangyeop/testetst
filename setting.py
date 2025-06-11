@@ -110,6 +110,7 @@ def what(place):
 
 for i in [0,1,2,3,4]:
     w = data[i][0]
-    st.write(what(w))
+    contents = what(w)
+    st.write(contents)
 
 
