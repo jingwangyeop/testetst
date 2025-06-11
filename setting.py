@@ -106,8 +106,7 @@ if len(data) >= 1:
     for i, item in enumerate(data[:5]):  # 최대 5개 표시
         w = data[i][0]
         contents = what(w)
-        st.write(f"{i+1}.{item[0]} , 주소: {item[1]} |
-        {contents} ")
+        st.write(f"{i+1}.{item[0]} , 주소: {item[1]} /n {contents} ")
 
 
 
