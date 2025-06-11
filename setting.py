@@ -1,5 +1,4 @@
 import openai
-import langchain
 import ast
 import os
 import requests
