@@ -9,3 +9,4 @@ duckduckgo-search
 requests
 folium
 streamlit-folium
+DuckDuckGoSearchResults
