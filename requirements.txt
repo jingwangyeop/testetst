@@ -1,13 +1,5 @@
-streamlit=
+streamlit
 openai
-langchain
-langchain_openai
-langchain-openai
-langchain_community
-langchain-community
-langchain-core
-langgraph
-duckduckgo-search
 requests
 folium
 streamlit-folium
