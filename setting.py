@@ -97,7 +97,9 @@ else:
 if len(data) >= 1:
     st.write("▶️ 주변 장소:")
     for i, item in enumerate(data[:5]):  # 최대 5개 표시
-        st.write(f"{i+1}. 위치: {item[0]} , 주소: {item[1]}")
+        w = data[i][0]
+        contents = what(w)
+        st.write(f"{i+1}.{item[0]} , 주소: {item[1]}, 설명 : {contents} ")
 
 def what(place):
     response = client.chat.completions.create(
