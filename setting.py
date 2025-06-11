@@ -9,11 +9,6 @@ from langchain_openai import ChatOpenAI
 import streamlit as st
 import streamlit.components.v1 as components
 
-from langchain_core.tools import tool
-from langchain_core.messages import ToolMessage
-from langchain_community.tools import DuckDuckGoSearchResults
-from langgraph.prebuilt import create_react_agent
-
 
 KAKAO_API_KEY = "83c0445f5fc4a2ee846f09e47fb00187"
 
