@@ -16,7 +16,7 @@ from langgraph.prebuilt import create_react_agent
 
 
 KAKAO_API_KEY = "83c0445f5fc4a2ee846f09e47fb00187"
-search1 = DuckDuckGoSearchResults()
+#search1 = DuckDuckGoSearchResults()
 # 1. 장소 키워드로 좌표 얻기
 def get_coordinates_by_keyword(query):
     url = "https://dapi.kakao.com/v2/local/search/keyword.json"
@@ -104,7 +104,7 @@ if len(data) >= 1:
 
 
 for i in [0,1,2,3,4,5]:
-    ppt = search1.invoke(f"{data[i][0]}을 검색해서 한문장으로 장소에 대해 요약해줘")
+    ppt = DuckDuckGoSearchResults().invoke(f"{data[i][0]}을 검색해서 한문장으로 장소에 대해 요약해줘")
     print(ppt)
 
 
