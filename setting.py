@@ -6,7 +6,7 @@ import folium
 from streamlit_folium import st_folium
 import streamlit as st
 import streamlit.components.v1 as components
-
+from openai import OpenAI
 
 KAKAO_API_KEY = "83c0445f5fc4a2ee846f09e47fb00187"
 
