@@ -10,3 +10,4 @@ requests
 folium
 streamlit-folium
 DuckDuckGoSearchResults
+langchain langchain_openai langchain_community duckduckgo-search langgraph
