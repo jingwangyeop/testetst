@@ -12,7 +12,6 @@ import streamlit.components.v1 as components
 os.environ["OPENAI_API_KEY"] = "1"
 model = ChatOpenAI(model="gpt-4.1-mini")
 
-search = DuckDuckGoSearchResults()
 
 from langchain_core.tools import tool
 from langchain_core.messages import ToolMessage
@@ -20,7 +19,7 @@ from langchain_community.tools import DuckDuckGoSearchResults
 from langgraph.prebuilt import create_react_agent
 
 KAKAO_API_KEY = "83c0445f5fc4a2ee846f09e47fb00187"
-
+search = DuckDuckGoSearchResults()
 # 1. 장소 키워드로 좌표 얻기
 def get_coordinates_by_keyword(query):
     url = "https://dapi.kakao.com/v2/local/search/keyword.json"
