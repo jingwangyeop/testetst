@@ -108,7 +108,7 @@ if len(data) >= 1:
 
 
 
-for i in data[:5]:
+for i in [0,1,2,3,4,5]:
     ppt = search.invoke(f"{data[i][0]}을 검색해서 한문장으로 장소에 대해 요약해줘")
     print(ppt)
 
