@@ -12,6 +12,8 @@ import streamlit.components.v1 as components
 os.environ["OPENAI_API_KEY"] = "1"
 model = ChatOpenAI(model="gpt-4.1-mini")
 
+search = DuckDuckGoSearchResults()
+
 from langchain_core.tools import tool
 from langchain_core.messages import ToolMessage
 from langchain_community.tools import DuckDuckGoSearchResults
@@ -102,5 +104,17 @@ if len(data) >= 1:
     for i, item in enumerate(data[:5]):  # 최대 5개 표시
         st.write(f"{i+1}. 위치: {item[0]} , 주소: {item[1]}")
 
+#################
+
+
+
+
+for i in data[:5]:
+    ppt = search.invoke(data[i][0]}을 검색해서 한문장으로 장소에 대해 요약해줘)
+    print(ppt)
+
+
 
 #추가할점 : 리뷰를적거나 블로그에서 무언갈 갖고오기 덕덕고 , 블로그 ㅇㅋㅇㅋㅇㅋㅇㅋㅇㅋㅇㅋㅇㅋㅇㅋ
+
+
