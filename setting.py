@@ -8,7 +8,7 @@ from streamlit_folium import st_folium
 from langchain_openai import ChatOpenAI
 import streamlit as st
 import streamlit.components.v1 as components
-import DuckDuckGoSearchResults
+from langchain_community.tools import DuckDuckGoSearchResults
 os.environ["OPENAI_API_KEY"] = "1"
 model = ChatOpenAI(model="gpt-4.1-mini")
 
