@@ -18,7 +18,7 @@ def what(place):
     response = client.chat.completions.create(
         model="gpt-4o-mini",
         messages=[
-            {"role": "system", "content": f"검색기능을 활용해 다음 장소를 한줄로 간략하게 요약해줘. 말투는 ~입니다 체여야하고 장소이름을 굳이 안말해도돼. 장소의특성만 알려주면돼. 그리고 관련해서 글을 쓴 블로그 글의 링크를 달아줘. {place}"}
+            {"role": "system", "content": f"검색기능을 활용해 다음 장소를 한줄로 간략하게 요약해줘. 말투는 ~입니다 체여야하고 장소이름을 굳이 안말해도돼. 장소의특성만 알려주면돼. 그리고 검색을 해서 사람들의 후기를 찾아서 갖다놓아줘. {place}"}
         ]
     )
     return response.choices[0].message.content
