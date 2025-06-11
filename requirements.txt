@@ -9,7 +9,3 @@ duckduckgo-search
 requests
 folium
 streamlit-folium
-langchain_community
-langchain_openai
-langchain_community
-duckduckgo-search
